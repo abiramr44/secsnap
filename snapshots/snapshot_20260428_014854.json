@@ -1,0 +1,127 @@
+{
+    "timestamp": "2026-04-28 01:48:54",
+    "trigger": "CPU_SPIKE: 5.30%",
+    "cpu": {
+        "total_usage_percent": 3.7,
+        "per_core_usage": [
+            3.1,
+            4.3
+        ],
+        "core_count": 2,
+        "frequency_mhz": {
+            "current": 3293.73,
+            "min": 0.0,
+            "max": 0.0
+        },
+        "load_average_1_5_15": {
+            "1min": 0.33251953125,
+            "5min": 0.25634765625,
+            "15min": 0.193359375
+        }
+    },
+    "memory": {
+        "ram": {
+            "total_mb": 1971.11,
+            "used_mb": 905.11,
+            "free_mb": 543.18,
+            "percent_used": 45.9
+        },
+        "swap": {
+            "total_mb": 953.67,
+            "used_mb": 0.0,
+            "percent_used": 0.0
+        },
+        "top_memory_processes": [
+            {
+                "pid": 676,
+                "name": "Xorg",
+                "memory_percent": 9.44
+            },
+            {
+                "pid": 1036,
+                "name": "xfwm4",
+                "memory_percent": 6.83
+            },
+            {
+                "pid": 79281,
+                "name": "qterminal",
+                "memory_percent": 3.47
+            },
+            {
+                "pid": 1496,
+                "name": "qterminal",
+                "memory_percent": 3.46
+            },
+            {
+                "pid": 1088,
+                "name": "xfdesktop",
+                "memory_percent": 3.33
+            }
+        ]
+    },
+    "network": {
+        "active_connections": 1,
+        "suspicious_connections": [],
+        "connections": [
+            {
+                "fd": -1,
+                "type": "UDP",
+                "local_address": "10.0.2.15:68",
+                "remote_address": "10.0.2.2:67",
+                "status": "NONE",
+                "pid": null
+            }
+        ],
+        "io_counters": {
+            "bytes_sent": 43008,
+            "bytes_recv": 64950,
+            "packets_sent": 284,
+            "packets_recv": 249
+        }
+    },
+    "disk": {
+        "partitions": [
+            {
+                "device": "/dev/sda1",
+                "mountpoint": "/",
+                "fstype": "ext4",
+                "total_gb": 78.28,
+                "used_gb": 17.07,
+                "free_gb": 57.19,
+                "percent_used": 23.0
+            }
+        ],
+        "io_counters": {
+            "read_mb": 626.85,
+            "write_mb": 204.51,
+            "read_count": 29120,
+            "write_count": 12578
+        },
+        "recent_tmp_files": [
+            {
+                "path": "/tmp/.xfsm-ICE-5XOOO3",
+                "modified": 1777339501.372804
+            },
+            {
+                "path": "/tmp/.ICE-unix/873",
+                "modified": 1777339501.3691778
+            },
+            {
+                "path": "/tmp/config-err-aNWAsw",
+                "modified": 1777339500.2806337
+            },
+            {
+                "path": "/tmp/.X0-lock",
+                "modified": 1777339483.6563256
+            },
+            {
+                "path": "/tmp/.X11-unix/X0",
+                "modified": 1777339483.6563256
+            },
+            {
+                "path": "/tmp/.iprt-localipc-DRMIpcServer",
+                "modified": 1777339482.312
+            }
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+2026-04-28 01:48:53,882 [INFO] SecSnap daemon started
+2026-04-28 01:48:54,883 [WARNING] CPU_SPIKE: 5.30%
+2026-04-28 01:49:06,959 [WARNING] CPU_SPIKE: 2.60%
+2026-04-28 01:49:06,959 [INFO] Cooldown active — skipping snapshot for: CPU_SPIKE: 2.60%
+2026-04-28 01:49:17,961 [WARNING] CPU_SPIKE: 3.80%
+2026-04-28 01:49:17,961 [INFO] Cooldown active — skipping snapshot for: CPU_SPIKE: 3.80%
+2026-04-28 01:49:28,967 [WARNING] CPU_SPIKE: 2.10%
+2026-04-28 01:49:33,697 [INFO] SecSnap daemon stopped
+2026-04-28 01:50:04,115 [INFO] SecSnap daemon started
+2026-04-28 01:50:09,753 [INFO] SecSnap daemon stopped

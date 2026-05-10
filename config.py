@@ -16,3 +16,23 @@ SNAPSHOT_DIR = "snapshots"
 LOG_FILE = "secsnap.log"
 
 COOLDOWN_SECONDS = 30
+
+WHITELISTED_IPS = [
+    "127.0.0.1",
+    "10.0.2.2",
+    "192.168.1.1",
+]
+
+WHITELISTED_PROCESSES = [
+    "systemd",
+    "kworker",
+    "Xorg",
+    "python3",
+]
+
+EMAIL_ENABLED = False
+EMAIL_SENDER = "your@gmail.com"
+EMAIL_RECEIVER = "your@gmail.com"
+EMAIL_PASSWORD = ""
+EMAIL_SMTP = "smtp.gmail.com"
+EMAIL_PORT = 587

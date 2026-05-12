@@ -25,11 +25,21 @@ def collect():
     io = psutil.disk_io_counters()
 
     recent_files = []
+    tmp_path = os.path.realpath('/tmp')
     try:
-        for root, dirs, files in os.walk('/tmp'):
+        for root, dirs, files in os.walk(tmp_path, followlinks=False):
+            real_root = os.path.realpath(root)
+            if not real_root.startswith(tmp_path):
+                logging.warning(f'Directory traversal attempt blocked: {root}')
+                dirs.clear()
+                continue
             for fname in files:
                 fpath = os.path.join(root, fname)
                 try:
+                    real_fpath = os.path.realpath(fpath)
+                    if not real_fpath.startswith(tmp_path):
+                        logging.warning(f'Symlink escape blocked: {fpath}')
+                        continue
                     mtime = os.path.getmtime(fpath)
                     recent_files.append({'path': fpath, 'modified': mtime})
                 except (OSError, PermissionError) as e:

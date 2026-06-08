@@ -33,7 +33,29 @@ To reduce false positives, you can configure trusted IPs and processes that shou
 Edit config.py to define whitelists with examples like localhost IPs, system processes, and common web ports.
 
 ## Email Alerting
-When a snapshot is triggered, SecSnap can send email alerts to notify SOC analysts immediately.
+When a snapshot is triggered, SecSnap can send email alerts.
+
+### Setup
+Set environment variables before running:
+
+export EMAIL_ENABLED=true
+export EMAIL_SENDER=your@gmail.com
+export EMAIL_RECEIVER=your@gmail.com
+export EMAIL_PASSWORD=your_app_password_here
+export EMAIL_SMTP=smtp.gmail.com
+export EMAIL_PORT=587
+
+### Important — Use App Passwords, Not Your Main Password
+Never use your main Gmail password. Generate a dedicated App Password:
+1. Go to myaccount.google.com/apppasswords
+2. Select "Mail" and your device
+3. Copy the generated 16-character password
+4. Use that as EMAIL_PASSWORD
+
+App Passwords are revocable and isolated — if compromised, revoke without affecting your main account.
+
+### Why Not OAuth2?
+OAuth2 is the most secure option for production deployments. For a local forensic tool, App Passwords provide a reasonable security tradeoff. If deploying SecSnap in a team or enterprise environment, implement OAuth2 via the gmail-python library.
 
 ### Configuration
 Add settings to config.py including enable toggle, SMTP server details, port, authentication credentials, and recipient address.

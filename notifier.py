@@ -4,6 +4,12 @@ import config
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+
+def sanitize_header(value: str) -> str:
+    """Remove CRLF characters to prevent email header injection."""
+    return value.replace('\r', '').replace('\n', '').strip()
+
+
 def send_alert(trigger, timestamp):
     if not config.EMAIL_ENABLED:
         return
@@ -13,24 +19,24 @@ def send_alert(trigger, timestamp):
         return
 
     try:
+        safe_trigger = sanitize_header(trigger)
+
         msg = MIMEMultipart()
         msg['From'] = config.EMAIL_SENDER
         msg['To'] = config.EMAIL_RECEIVER
-        msg['Subject'] = f'[SecSnap ALERT] {trigger}'
+        msg['Subject'] = f'[SecSnap ALERT] {safe_trigger}'
 
         body = f"""
 SecSnap Forensic Alert
 ======================
-Trigger   : {trigger}
+Trigger   : {safe_trigger}
 Snapshot  : snapshots/snapshot_{timestamp}.txt
 
 Review the snapshot files immediately for forensic details.
-        """
-
+"""
         msg.attach(MIMEText(body, 'plain'))
 
         context = ssl.create_default_context()
-
         with smtplib.SMTP(config.EMAIL_SMTP, config.EMAIL_PORT) as server:
             server.ehlo()
             server.starttls(context=context)
